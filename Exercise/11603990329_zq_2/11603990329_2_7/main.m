@@ -1,0 +1,10 @@
+clc;
+clear;
+m = 7;
+n = 7;
+f = imread('characters_noise.tif');
+f = rgb2gray(f);
+f = tofloat(f);
+g = medfilt2(f,[m,n],'symmetric');
+subplot(1,2,1);imshow(f);title('原始图像');
+subplot(1,2,2);imshow(g);title('经过非线性滤波的图像');

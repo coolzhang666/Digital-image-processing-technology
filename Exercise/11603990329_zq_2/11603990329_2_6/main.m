@@ -1,0 +1,17 @@
+clc;
+clear;
+f = imread('moon.jpg');
+w1 = fspecial('laplacian',0);
+w1 = rot90(w1,2);
+%w2 = fspecial('average',2);
+f1 = rgb2gray(f);
+f2 = tofloat(f);
+g1 = medfilt2(f1,[5,5]);
+g2 = imfilter(f2,w1,'replicate');
+g3 = 2*f1 - g1;
+g4 = f2 - g2;
+subplot(3,3,2);imshow(f);title('原始图像');
+subplot(3,3,4);imshow(g1);title('平滑后的图像');
+subplot(3,3,6);imshow(g2);title('锐化后的图像');
+subplot(3,3,7);imshow(g3);title('高频提升滤波后的图像');
+subplot(3,3,9);imshow(g4);title('锐化后的增强图像');
