@@ -1,7 +1,7 @@
 f = imread('image/image.png');
 
-g = localthresh(f, ones(3), 8.5, 1.15, 'global');
-SIG = stdfilt(f, ones(3));
+g = localthresh(f, ones(9), 10.5, 0.8, 'global');
+SIG = stdfilt(f, ones(9));
 
 figure;
 subplot(1, 2, 1); imshow(f); title('原始图像');
