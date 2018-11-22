@@ -16,7 +16,6 @@ g = medfilt2(f,[2,2],'symmetric');
 g1 = imbinarize(g, 0.45);
 g2 = imopen(g1, strel('rectangle', [1, 2]));
 
-
 % 制作切割模板，切割车牌信息部分（去掉边框）
 g3 = bwareaopen(g2, 350);
 bg1 = imclose(g3, strel('rectangle', [3, 100]));
