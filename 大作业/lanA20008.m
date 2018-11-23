@@ -10,17 +10,18 @@ f = tofloat(f);
 g = medfilt2(f,[8,8],'symmetric');
 
 % 转化为2值图像
-g1 = im2bw(g);
+%g1 = im2bw(g);
+g1 = imbinarize(g, 0.46);
 g1 = ~g1; %求反
 
 % 去掉边缘部分
-g2 = removeLageArea(g1, 8000);
+g2 = removeLageArea(g1, 2000);
 
 % 开操作，去掉细微部分连接
-g3 = imopen(g2, strel('rectangle', [5, 5]));
+g3 = imopen(g2, strel('rectangle', [2, 2]));
 
 % 去掉小连通区域
-g4 = bwareaopen(g3, 160);
+g4 = bwareaopen(g3, 100);
 
 % 制作切割模板，切割车牌信息部分（去掉边框）
 bg1 = imclose(g4, strel('rectangle', [100, 100]));
@@ -39,7 +40,7 @@ width = status(1).BoundingBox(3);
 height = status(1).BoundingBox(4);
 g5 = imcrop(g4, [X, Y, width, height]);
 
-g6 = bwareaopen(g5, 160);
+g6 = bwareaopen(g5, 100);
 
 
 
