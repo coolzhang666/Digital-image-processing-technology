@@ -2,7 +2,7 @@ clc;
 clear;
 
 % 读入图像并转换为灰度图
-image = imread('image/III类/云AU7526.jpg');
+image = imread('../image/III类/云AU7526.jpg');
 f = rgb2gray(image);
 
 % 对原始图像进行开操作得到背景图像

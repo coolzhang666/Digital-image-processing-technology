@@ -2,7 +2,7 @@ clear;
 clc;
 
 % 读取图像
-f = imread('image/II类/蒙A16777.jpg');
+f = imread('../image/II类/蒙A16777.jpg');
 
 % 灰度图
 g = rgb2gray(f);

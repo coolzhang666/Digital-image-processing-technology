@@ -1,7 +1,7 @@
 clear;
 clc;
 
-f = imread('image/II类/兰A20008.jpg');
+f = imread('../image/II类/兰A20008.jpg');
 
 f = rgb2gray(f);
 f = tofloat(f);

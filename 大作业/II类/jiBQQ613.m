@@ -2,7 +2,7 @@ clear;
 clc;
 
 % 读入图像
-f = imread('image/II类/冀BQQ613.jpg');
+f = imread('../image/II类/冀BQQ613.jpg');
 % 转化为灰度图
 f = rgb2gray(f);
 % 转化为浮点类型
